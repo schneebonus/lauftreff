@@ -1,0 +1,21 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    <h5 class="card-title">{{ session.title }}</h5>
+  </div>
+    <div class="card-body">
+      <p class="card-text">{{ session.description }}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Treffpunkt:<br>{{ session.location }}</small>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Autor:<br>Mark</small>
+    </div>
+    {% if session.author.username == user.get_username %}
+      {% if 'id' not in request.GET %}
+      <div class="card-footer">
+        <small class="text-muted"><a href="{% url 'blackboard:delete_session' %}?id={{ session.id }}">Löschen</a></small>
+      </div>
+      {% endif%}
+    {% endif %}
+</div>

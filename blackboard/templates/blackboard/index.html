@@ -1,0 +1,33 @@
+{% extends 'lauftreff/base_layout.html' %}
+
+{% block content %}
+<div class="mb-5">
+Hier findet sich ein schwarzes Brett auf dem Nutzer ihre geplanten Lauftermine veröffentlichen können.<br>
+Dazu wird der Button "Neuen Lauf veröffentlichen" gewählt und der Lauf im darauf folgenden Dialog definiert.<br>
+Interessierte Nutzer können sich anschließend diesem Lauf anschließen.<br>
+Das schwarze Brett ist öffentlich zugänglich. Um geplante Läufe zu veröffentlichen und zu verwalten, wird jedoch ein Account benötigt.
+{% if not user.is_authenticated %}Neue Accounts können <a href="{% url 'signup' %}">hier</a> angelegt werden.{% endif %}
+</div>
+
+<div class="container">
+  <div class="row">
+      {% for session in sessions %}
+      <div class="col-6 mb-5">{% include "blackboard/blackboard_entry.html" %}</div>
+
+          <!-- if last column in row -->
+          {% if forloop.counter|divisibleby:"2" and not forloop.last %}
+          </div><div class="row">
+          {% endif %}
+
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block submenu %}
+  <a class="btn btn-light" href="{% url 'blackboard:new_session' %}">Neuen Lauf veröffentlichen</a>
+{% endblock %}
+
+{% block well %}
+  <h2>Schwarzes Brett</h2>
+{% endblock %}

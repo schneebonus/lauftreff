@@ -1,0 +1,24 @@
+{% extends 'lauftreff/base_layout.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'blackboard:save_session' %}">
+  {% csrf_token %}
+  <div class="form-group">
+    <label>Überschrift</label><br>
+    <input type="text" name="title">
+  </div>
+  <div class="form-group">
+    <label>Beschreibung</label><br>
+    <textarea  cols="50" rows="10" name="description"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Treffunkt</label><br>
+    <input type="text" name="location">
+  </div>
+  <button type="submit" class="btn btn-light">Veröffentlichen</button>
+</form>
+{% endblock %}
+
+{% block well %}
+  <h2>Schwarzes Brett</h2>
+{% endblock %}

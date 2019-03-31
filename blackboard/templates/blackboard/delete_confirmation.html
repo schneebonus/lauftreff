@@ -1,0 +1,20 @@
+{% extends 'lauftreff/base_layout.html' %}
+
+{% block content %}
+<div class="mb-5">
+Sind sie sicher, dass dieser Aushang vom schwarzen Brett entfernt werden soll?
+</div>
+<div class="mb-5">
+{% include "blackboard/blackboard_entry.html" %}
+</div>
+<div class="mb-5">
+<form method="get">
+  <a href="{% url 'blackboard:delete_session' %}?id={{ session.id }}&confirmation=True" class="btn btn-light">Ja</a>
+  <a href="{% url 'blackboard:index' %}" class="btn btn-light">Nein</a>
+</form>
+</div>
+{% endblock %}
+
+{% block well %}
+  <h2>Schwarzes Brett</h2>
+{% endblock %}

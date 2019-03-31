@@ -1,0 +1,50 @@
+{% load static %}
+
+<html>
+  <head>
+    <title>Lauftreff Tool</title>
+    <link rel="stylesheet" href="{% static "lauftreff/css/bootstrap.min.css" %}">
+    {% block css %}
+    {% endblock %}
+    <style>
+    .well {
+
+        background: #2c3e50;
+        text-align: center;
+        padding: 10px 0 0px 0;
+        color: #fff;
+
+    }
+    </style>
+  </head>
+  <body>
+    {% include "lauftreff/main_menu.html" %}
+    <div class="well">
+      <div class="container mt-2 pb-2 mb-2">
+      {% block well %}
+      {% endblock %}
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="col-12 py-md-3 pl-md-5 bd-content">
+        <div class="row">
+          <div class="col-9">
+          {% block content %}
+          {% endblock %}
+          </div>
+          <div class="col-3">
+            <div class="container">
+              {% block submenu %}
+              {% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static "lauftreff/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "lauftreff/js/jquery.min.js" %}"></script>
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>
