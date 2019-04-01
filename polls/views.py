@@ -11,6 +11,14 @@ def index(request):
     context = {'latest_question_list': latest_question_list, 'tm_active': True}
     return render(request, 'polls/index.html', context)
 
+def week_overview(request, year, week_id):
+    context = {'year':year, 'week_id': week_id, 'tm_active': True}
+    return render(request, 'polls/week_overview.html', context)
+
+def week_poll(request, year, week_id):
+    context = {'year':year, 'week_id': week_id, 'tm_active': True}
+    return render(request, 'polls/week_poll.html', context)
+
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/detail.html', {'question': question})

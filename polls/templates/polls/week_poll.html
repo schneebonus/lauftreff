@@ -1,0 +1,65 @@
+{% extends 'lauftreff/base_layout.html' %}
+
+{% block content %}
+
+<div class="mb-5">
+Lorem ipsum sit hodor.<br>
+Setzen von verfügbaren Zeitslots.<br>
+Jahr und Kalenderwoche werden im Pfad der URL übergeben.<br>
+ToDo: Plausibilität der Parameter prüfen.<br>
+XSS Angriffe in den Parametern escapen / abfangen (cast zu int erfolgt aber ich traue diesem Braten nicht)!
+</div>
+
+<div class="mb-5">
+<h2>ToDo: Terminauswahl</h2>
+
+<table border="1">
+  <tr>
+    <th>Zeitslot</th>
+    <th>Bin jede Woche dabei</th>
+    <th>Bin dabei!</th>
+    <th>Bin vielleicht dabei</th>
+    <th>Bin nicht dabei</th>
+  <tr>
+  <tr>
+    <td>Montag - 15 Uhr</td>
+    <td><input type="radio" name="mo15" value="always"></td>
+    <td><input type="radio" name="mo15" value="always"></td>
+    <td><input type="radio" name="mo15" value="always"></td>
+    <td><input type="radio" name="mo15" value="always"></td>
+  <tr>
+    <tr>
+      <td>Montag - 16 Uhr</td>
+      <td><input type="radio" name="mo16" value="always"></td>
+      <td><input type="radio" name="mo16" value="yes"></td>
+      <td><input type="radio" name="mo16" value="maybe"></td>
+      <td><input type="radio" name="mo16" value="no"></td>
+    <tr>
+      <tr>
+        <td>Montag - 17 Uhr</td>
+        <td><input type="radio" name="mo17" value="always"></td>
+        <td><input type="radio" name="mo17" value="yes"></td>
+        <td><input type="radio" name="mo17" value="maybe"></td>
+        <td><input type="radio" name="mo17" value="no"></td>
+      <tr>
+        <tr>
+          <td>Dienstag - 15 Uhr</td>
+          <td><input type="radio" name="di15" value="always"></td>
+          <td><input type="radio" name="di15" value="yes"></td>
+          <td><input type="radio" name="di15" value="maybe"></td>
+          <td><input type="radio" name="di15" value="no"></td>
+        <tr>
+</table>
+
+<input type="submit" value="Speichern"></input>
+
+</div>
+{% endblock %}
+
+{% block well %}
+  <h2>Terminsetzung - KW {{ week_id }} ({{ year }})</h2>
+{% endblock %}
+
+{% block submenu %}
+  ToDo: Option um gesamte Woche als abwesend zu markieren.
+{% endblock %}

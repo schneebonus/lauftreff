@@ -1,0 +1,29 @@
+{% extends 'lauftreff/base_layout.html' %}
+
+{% block content %}
+
+<div class="mb-5">
+Lorem ipsum sit hodor.<br>
+Übersicht der Termine einer kalenderwoche.<br>
+Jahr und Kalenderwoche werden im Pfad der URL übergeben.<br>
+ToDo: Plausibilität der Parameter prüfen.<br>
+XSS Angriffe in den Parametern escapen / abfangen (cast zu int erfolgt aber ich traue diesem Braten nicht)!
+</div>
+
+<div class="mb-5">
+<h2>ToDo: Übersicht</h2>
+
+ToDo: Fancy Pancy Tabelle. Spalten sind Zeitsplots und Zeiten bilden Nutzer ab.<br>
+Grün: Nutzer sagt ja<br>
+Gelb: Nutzer sagt vielleicht<br>
+Rot: Nutzer sagt nein
+</div>
+{% endblock %}
+
+{% block well %}
+  <h2>Terminfindung - KW {{ week_id }} ({{ year }})</h2>
+{% endblock %}
+
+{% block submenu %}
+  ToDo: Option um nur eigene verfügbare Zeitsplots anzuzeigen.
+{% endblock %}
